@@ -19,18 +19,15 @@ function App() {
           </div>
           <h2 className="content__title">All pizza</h2>
           <div className="content__items">
-            {pizzas.map((value) => {
-              return <PizzaBlock title={value.title} price={value.price} />;
+            {pizzas.map((value, index) => {
+              return (
+                <PizzaBlock
+                  key={index}
+                  {...value}
+                />
+              );
             })}
-            {/* <PizzaBlock title="Cheese seasons" price={12} />
-            <PizzaBlock title="Margarita" price={8} />
-            <PizzaBlock title="Cheese seasons" price={12} />
-            <PizzaBlock title="Cheese seasons" price={12} />
-            <PizzaBlock title="Cheese seasons" price={12} />
-            <PizzaBlock title="Cheese seasons" price={12} />
-            <PizzaBlock title="Cheese seasons" price={12} />
-            <PizzaBlock title="Cheese seasons" price={12} />
-            <PizzaBlock title="Cheese seasons" price={12} /> */}
+          
           </div>
         </div>
       </div>

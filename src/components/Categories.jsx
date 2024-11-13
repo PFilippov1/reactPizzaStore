@@ -17,7 +17,7 @@ export default function Categories() {
       <ul>
         {categories.map((elem, index) => {
           return (
-            <li
+            <li key={index}
               onClick={() => {
                 onClickCategory(index);
               }}
