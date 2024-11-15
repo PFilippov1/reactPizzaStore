@@ -14,7 +14,7 @@ function PizzaBlock({ title, price, imageUrl, sizes, types }) {
           {types.map((value, index) => {
             return (
               <li
-                key={index}
+                key={value}
                 onClick={() => {
                   setActiveType(value);
                 }}
@@ -29,7 +29,7 @@ function PizzaBlock({ title, price, imageUrl, sizes, types }) {
           {sizes.map((value, index) => {
             return (
               <li
-                key={index}
+                key={value}
                 onClick={() => {
                   setActiveSize(value);
                 }}

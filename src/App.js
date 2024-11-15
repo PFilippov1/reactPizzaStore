@@ -1,11 +1,11 @@
 import React from 'react';
 
 import './scss/app.scss';
-import Categories from './components/Categories.jsx';
-import Sort from './components/Sort.jsx';
+import Home from './pages/Home.jsx';
 import Header from './components/Header.jsx';
-import PizzaBlock from './components/PizzaBlock.jsx';
-import pizzas from './assets/pizzas.json';
+import NotFound from './pages/NotFound.jsx';
+
+// import pizzas from './assets/pizzas.json';
 
 function App() {
   return (
@@ -13,22 +13,8 @@ function App() {
       <Header />
       <div className="content">
         <div className="container">
-          <div className="content__top">
-            <Categories />
-            <Sort />
-          </div>
-          <h2 className="content__title">All pizza</h2>
-          <div className="content__items">
-            {pizzas.map((value, index) => {
-              return (
-                <PizzaBlock
-                  key={index}
-                  {...value}
-                />
-              );
-            })}
-          
-          </div>
+          <Home />
+          {/* <NotFound/> */}
         </div>
       </div>
     </div>
