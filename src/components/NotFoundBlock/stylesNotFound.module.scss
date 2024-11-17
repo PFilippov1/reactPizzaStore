@@ -8,7 +8,15 @@
   --color: #fafafa;
   --lit-header: #e6e6e6;
   --speed: 2s;
+   
 }
+
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 
 * {
   box-sizing: border-box;
@@ -25,7 +33,7 @@
   syntax: '<integer>';
 }
 
-a {
+.linkToHome {
   text-transform: uppercase;
   text-decoration: none;
   background: var(--button);
@@ -35,14 +43,14 @@ a {
   font-size: 0.875rem;
   letter-spacing: 0.05rem;
 }
-p {
+.p__404 {
   font-weight: 100;
   color: var(--color);
 }
-h2 {
+.h2__404 {
   color: var(--color);
 }
-h1 {
+.h1__404 {
   -webkit-animation: swing var(--speed) infinite alternate ease-in-out;
   animation: swing var(--speed) infinite alternate ease-in-out;
   font-size: clamp(5rem, 40vmin, 20rem);
@@ -56,7 +64,7 @@ h1 {
   -webkit-background-clip: text;
   color: transparent;
 }
-h1:after {
+.h1__404:after {
   -webkit-animation: swing var(--speed) infinite alternate ease-in-out;
   animation: swing var(--speed) infinite alternate ease-in-out;
   content: '404';
