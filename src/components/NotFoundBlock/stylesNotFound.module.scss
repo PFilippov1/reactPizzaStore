@@ -8,20 +8,20 @@
   --color: #fafafa;
   --lit-header: #e6e6e6;
   --speed: 2s;
-   
 }
 
-.wrapper{
+
+.wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-
-* {
-  box-sizing: border-box;
   transform-style: preserve-3d;
 }
+
+// * {
+//   box-sizing: border-box;
+//   transform-style: preserve-3d;
+// }
 @property --swing-x {
   initial-value: 0;
   inherits: false;
@@ -63,6 +63,7 @@
   background: radial-gradient(var(--lit-header), var(--header) 45%) var(--x) 100%/200% 200%;
   -webkit-background-clip: text;
   color: transparent;
+  transform-style: preserve-3d;
 }
 .h1__404:after {
   -webkit-animation: swing var(--speed) infinite alternate ease-in-out;
@@ -75,6 +76,7 @@
   filter: blur(1.5vmin);
   transform: scale(1.05) translate3d(0, 12%, -10vmin)
     translate(calc((var(--swing-x, 0) * 0.05) * 1%), calc((var(--swing-y) * 0.05) * 1%));
+    transform-style: preserve-3d;
 }
 .cloak {
   animation: swing var(--speed) infinite alternate-reverse ease-in-out;
@@ -83,6 +85,7 @@
   transform-origin: 50% 30%;
   transform: rotate(calc(var(--swing-x) * -0.25deg));
   background: radial-gradient(40% 40% at 50% 42%, transparent, #000 35%);
+  transform-style: preserve-3d;
 }
 .cloak__wrapper {
   position: fixed;
@@ -104,9 +107,11 @@
   text-align: center;
   line-height: 1.5;
   max-width: clamp(16rem, 90vmin, 25rem);
+  transform-style: preserve-3d;
 }
 .info > p {
   margin-bottom: 3rem;
+  transform-style: preserve-3d;
 }
 @-webkit-keyframes swing {
   0% {
