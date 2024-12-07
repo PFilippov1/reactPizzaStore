@@ -1,6 +1,5 @@
 @import './variables';
 @import './libs/normalize';
-
 @import './components/all';
 
 body {
@@ -163,7 +162,7 @@ body {
     }
   }
 
-  .content__items{
+  .content__items {
     display: block;
   }
 
@@ -335,12 +334,13 @@ body {
   }
 
   &--empty {
-    margin: 0 auto;
-    width: 560px;
+    margin: 200px auto;
+    width: 600px;
     text-align: center;
 
     h2 {
       font-size: 32px;
+      font-weight: 700;
       margin-bottom: 10px;
     }
 

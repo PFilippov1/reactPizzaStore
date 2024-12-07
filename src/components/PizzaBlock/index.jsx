@@ -1,9 +1,28 @@
 import React from 'react';
-function PizzaBlock({ title, price, imageUrl, sizes, types }) {
-  const [activeType, setActiveType] = React.useState(0);
-  const [activeSize, setActiveSize] = React.useState(26);
+import { useSelector, useDispatch } from 'react-redux';
+import { addItem } from '../../redux/slices/cartSlice';
 
+function PizzaBlock({ id, title, price, imageUrl, sizes, types }) {
+  const [activeType, setActiveType] = React.useState(0);
+  const [activeSize, setActiveSize] = React.useState(0);
+  const dispatch = useDispatch();
+  const cartItem = useSelector((state) => state.cart.items.find((obj) => obj.id === id));
+  const addedCount = cartItem ? cartItem.count : 0;
   const typeNames = ['thin', 'tradition'];
+console.log(activeSize)
+  const onClickAdd = () => {
+    const item = {
+      id,
+      title,
+      price,
+      imageUrl,
+      type: typeNames[activeType],
+      // size: activeSize,
+      size: sizes[activeSize],
+    };
+    dispatch(addItem(item));
+  };
+
 
   return (
     <div className="pizza-block-wrapper">
@@ -30,11 +49,11 @@ function PizzaBlock({ title, price, imageUrl, sizes, types }) {
             {sizes.map((value, index) => {
               return (
                 <li
-                  key={value}
+                  key={index}
                   onClick={() => {
-                    setActiveSize(value);
+                    setActiveSize(index);
                   }}
-                  className={activeSize === value ? 'active' : ''}
+                  className={activeSize === index ? 'active' : ''}
                 >
                   {value} sm.
                 </li>
@@ -57,8 +76,8 @@ function PizzaBlock({ title, price, imageUrl, sizes, types }) {
                 fill="white"
               ></path>
             </svg>
-            <span>Add</span>
-            <i>{0}</i>
+            <span onClick={onClickAdd}>Add</span>
+            {addedCount > 0 && <i>{addedCount}</i>}
           </button>
         </div>
       </div>
