@@ -8,16 +8,15 @@ import Skeleton from '../components/PizzaBlock/Skeleton';
 import Categories from '../components/Categories';
 import Sort, { sortList } from '../components/Sort';
 import Pagination from '../components/Pagination';
-import { SearchContext } from '../App';
-import { fetchPizzas } from '../redux/slices/pizzaSlice';
+import { fetchPizzas, selectPizzaData } from '../redux/slices/pizzaSlice';
+import { selectFilter } from '../redux/slices/filterSlice';
 
 function Home() {
-  const { categoryId, sort, currentPage } = useSelector((state) => state.filter);
-  const { items, status } = useSelector((state) => state.pizza);
+  const { categoryId, sort, currentPage, searchValue } = useSelector(selectFilter);
+  const { items, status } = useSelector(selectPizzaData);
   const IsMounted = React.useRef(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { searchValue } = React.useContext(SearchContext);
   const isSearch = React.useRef(false);
 
   const onChangeCategory = (id) => {
@@ -31,7 +30,8 @@ function Home() {
     const sortBy = sort.sortProperty.replace('-', '');
     const order = sort.sortProperty.includes('-') ? 'asc' : 'desc';
     const category = categoryId > 0 ? `category=${categoryId}` : '';
-    const search = searchValue ? `&search=${searchValue}sortProperty ` : '';
+    // const search = searchValue ? `&search=${searchValue}sortProperty ` : '';
+    const search = searchValue ? `&search=${searchValue}` : '';
 
     dispatch(fetchPizzas({ sortBy, order, category, search, currentPage }));
 
@@ -82,7 +82,7 @@ function Home() {
       </div>
       <h2 className="content__title">All pizza</h2>
       {status === 'error' ? (
-        <div className='content__error-info'>
+        <div className="content__error-info">
           <h2>An error occurred</h2>
           <p>It was not possible to get pizza. Please try to repeat the attempt later.</p>
         </div>
