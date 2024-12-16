@@ -11,7 +11,7 @@ export const fetchPizzas = createAsyncThunk('pizza/fetchPizzasStatus', async (pa
     return data;
   } catch (error) {
     console.error('Error fetching pizzas:', error);
-    throw error;
+    // throw error;
   }
 });
 

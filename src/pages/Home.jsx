@@ -1,6 +1,6 @@
 import React from 'react';
 import qs from 'qs';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { setCategoryId, setCurrentPage, setFilters } from '../redux/slices/filterSlice';
 import PizzaBlock from '../components/PizzaBlock';
@@ -70,7 +70,12 @@ function Home() {
   const pizzas =
     Array.isArray(items) &&
     items.map((obj) => {
-      return <PizzaBlock key={obj.id} {...obj} />;
+      return (
+        // <Link key={obj.id} to={`/pizza/${obj.id}`}>
+        //   <PizzaBlock {...obj} />
+        // </Link>
+        <PizzaBlock key={obj.id} {...obj} />
+      );
     });
   const skeletons = [...new Array(6)].map((_, index) => <Skeleton key={index} />);
 
