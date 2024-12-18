@@ -1,13 +1,12 @@
 import React from 'react';
 
 import './scss/app.scss';
-import Home from './pages/Home.jsx';
-import Header from './components/Header.jsx';
-import Cart from './pages/Cart.jsx';
-import NotFound from './pages/NotFound.jsx';
+import Home from './pages/Home';
+import Cart from './pages/Cart';
+import NotFound from './pages/NotFound';
 import { Routes, Route } from 'react-router-dom';
-import FullPizza from './pages/FullPizza.jsx';
-import MainLayout from './layouts/MainLayout.jsx';
+import FullPizza from './pages/FullPizza';
+import MainLayout from './layouts/MainLayout';
 // import pizzas from './assets/pizzas.json';
 
 function App() {

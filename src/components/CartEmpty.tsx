@@ -2,12 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import emptyCart from '../assets/img/empty-cart.png';
 
-function CartEmpty() {
+const CartEmpty: React.FC = () => {
   return (
     <div className="cart cart--empty">
-      <h2>
-        The basket is empty😕
-      </h2>
+      <h2>The basket is empty😕</h2>
       <p>
         Most likely, you have not ordered yet pizza.
         <br />
@@ -19,6 +17,6 @@ function CartEmpty() {
       </Link>
     </div>
   );
-}
+};
 
 export default CartEmpty;
