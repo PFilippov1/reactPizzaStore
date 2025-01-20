@@ -1,5 +1,4 @@
-# Project pizza store. React education.
-
+# reactPizzaStore
 I embarked on my React journey by crafting a pizza-ordering application.  
 Leveraging the Redux Toolkit for state management, I fetched pizza data from mockapi.io to populate a dynamic and interactive user interface.   
 This project was a valuable opportunity to solidify my understanding of: React components and hooks
@@ -18,4 +17,6 @@ Building responsive and user-friendly interfaces.
 * React Content Loader 
 * React Pagination
 * Lodash.Debounce
+
+This is the pizza site *[reactPizzaStore](https://react-pizza-pfil.netlify.app)*
 
