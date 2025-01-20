@@ -10,3 +10,14 @@ export const getCartFromLocalStorage = () => {
     totalPrice,
   };
 };
+
+export const clearCartFromLocalStorage = () => {
+  localStorage.clear();
+};
+
+export const removeItemFromLocalStorage = (id: string) => {
+  const data = localStorage.getItem('cart');
+  const items: CartItem[] = data ? JSON.parse(data) : [];
+  const updatedItems = items.filter((item) => item.id !== id);
+  localStorage.setItem('cart', JSON.stringify(updatedItems));
+};

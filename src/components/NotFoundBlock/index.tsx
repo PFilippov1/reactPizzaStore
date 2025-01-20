@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './stylesNotFound.module.scss';
 import { Link } from 'react-router-dom';
 
-const NotFoundBlock: React.FC = () => {
+export const NotFoundBlock: React.FC = () => {
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.h1__404}>404</h1>
@@ -25,4 +25,3 @@ const NotFoundBlock: React.FC = () => {
   );
 };
 
-export default NotFoundBlock;

@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from '../store';
-import { getCartFromLocalStorage } from '../../utils/getCartFromLocalStorage';
+import { clearCartFromLocalStorage, getCartFromLocalStorage, removeItemFromLocalStorage } from '../../utils/getCartFromLocalStorage';
 import { calcTotalPrice } from '../../utils/calcTotalPrice';
 import { CartItem, CartSliceState } from './types';
 
@@ -35,14 +34,18 @@ const cartSlice = createSlice({
       state.totalPrice = calcTotalPrice(state.items);
     },
 
-    removeItem(state, action: PayloadAction<string>) {
-      state.items = state.items.filter((obj) => obj.id !== action.payload);
-      state.totalPrice = calcTotalPrice(state.items);
-    },
+      removeItem(state, action: PayloadAction<string>) {
+        state.items = state.items.filter((obj) => obj.id !== action.payload);
+        state.totalPrice = calcTotalPrice(state.items);
+        removeItemFromLocalStorage(action.payload);
+      },
 
     clearItems(state) {
       state.items = [];
       state.totalPrice = 0;
+      clearCartFromLocalStorage();
+
+
     },
   },
 });

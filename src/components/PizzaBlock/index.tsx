@@ -13,7 +13,7 @@ type PizzaBlockProps = {
   sizes: number[];
   types: number[];
 };
-const PizzaBlock: React.FC<PizzaBlockProps> = ({ id, title, price, imageUrl, sizes, types }) => {
+export const PizzaBlock: React.FC<PizzaBlockProps> = ({ id, title, price, imageUrl, sizes, types }) => {
   const [activeType, setActiveType] = React.useState(0);
   const [activeSize, setActiveSize] = React.useState(0);
   const dispatch = useDispatch();
@@ -99,4 +99,3 @@ const PizzaBlock: React.FC<PizzaBlockProps> = ({ id, title, price, imageUrl, siz
   );
 };
 
-export default PizzaBlock;
