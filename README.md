@@ -17,3 +17,6 @@ Building responsive and user-friendly interfaces.
 * React Content Loader 
 * React Pagination
 * Lodash.Debounce
+
+This is the pizza site *[reactPizzaStore](https://react-pizza-pfil.netlify.app)*
+
