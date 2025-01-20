@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const FullPizza: React.FC = () => {
   const [pizza, setPizza] = React.useState<{ imageUrl: string; title: string; price: string }>();
@@ -32,7 +33,10 @@ const FullPizza: React.FC = () => {
     <div className="container">
       {' '}
       <h2>{pizza.title}</h2> <img src={pizza.imageUrl} alt={pizza.title} />
-      <h4>{pizza.price} $</h4>{' '}
+      <h4>{pizza.price} $</h4>
+      <Link to={'/'}>
+        <button className="button button--outline button--add">Return</button>
+      </Link>
     </div>
   );
 };
